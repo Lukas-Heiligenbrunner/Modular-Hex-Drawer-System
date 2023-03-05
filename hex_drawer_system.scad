@@ -1,11 +1,14 @@
+////  Parameters ////
+enableMountingHoles=false;
+
+////  Constants ////
 depth=50;
 diameter=40;
 mainFrameThickness=3;
 
 $fn=100;
 
-enableMountingHoles=false;
-
+//// Model ////
 difference() {
     basebody();
     if(enableMountingHoles) {
