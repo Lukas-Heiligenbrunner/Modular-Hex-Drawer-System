@@ -2,8 +2,8 @@
 enableMountingHoles = true;
 
 ////  Constants ////
-depth = 80;
-diameter = 80;
+depth = 90;
+diameter = 60;
 mainFrameThickness = 3;
 
 gripDepth = 1.75;
@@ -14,7 +14,7 @@ $fn = 100;
 
 _flatSideDiam = (diameter / 2) * sqrt(3 / 4);
 
-size = 3;
+size = 1;
 
 //// Model ////
 if (size == 1) {
