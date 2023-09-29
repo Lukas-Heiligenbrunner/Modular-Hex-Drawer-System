@@ -7,7 +7,7 @@ height= 87;
 // config
 seperators = 0;
 middlesep=false;
-bitHolder=true;
+bitHolder=false;
 
 size=1;
 

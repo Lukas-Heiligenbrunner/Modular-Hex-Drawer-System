@@ -81,7 +81,6 @@ module buildhexagon() {
         basebody();
         if (enableMountingHoles) {
             hole();
-            rotate([0, 0, 180]) hole();
         }
     }
 }
@@ -105,7 +104,6 @@ module basebody() {
 
     if (enableMountingHoles) {
         holeFrame();
-        rotate([0, 0, 180]) holeFrame();
     }
 }
 
@@ -116,14 +114,18 @@ module holders() {
 }
 
 module holeFrame() {
-    translate([diameter / 2 - mainFrameThickness - 5, 0, 0]) cylinder(r = 5, h = 3, $fn = 6);
+    cylinder(r = 5, h = 3, $fn = 6);
+    #rotate([0,0,30]) translate([4,-2.5, 0]) cube([20,5,3]);
+    #rotate([0,0,210]) translate([4,-2.5, 0]) cube([20,5,3]);
+    #rotate([0,0,90]) translate([4,-2.5, 0]) cube([20,5,3]);
+    #rotate([0,0,270]) translate([4,-2.5, 0]) cube([20,5,3]);
 }
 
 module hole() {
     headdiam = 6.75;
     holediam = 3.25;
 
-    translate([diameter / 2 - mainFrameThickness - 5, 0, 0]) cylinder(d = holediam, h = 3);
-    translate([diameter / 2 - mainFrameThickness - 5, 0, 0.75]) cylinder(h = 2.25, d1 = holediam, d2 = headdiam);
+    cylinder(d = holediam, h = 3);
+    translate([0, 0, 0.75]) cylinder(h = 2.25, d1 = holediam, d2 = headdiam);
 }
 
