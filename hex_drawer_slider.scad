@@ -1,3 +1,5 @@
+use<label.scad>
+
 diameter=53.2;
 _flatSideDiam = (diameter / 2) * sqrt(3 / 4);
 
@@ -5,14 +7,20 @@ thickness = 2;
 height= 87;
 
 // config
-seperators = 0;
-middlesep=false;
+seperators = 2;
+middlesep=true;
 bitHolder=false;
+
 
 size=1;
 
 if(size == 1) {
-    linear_extrude(1) circle(d=diameter, $fn=6);
+    difference() {
+        linear_extrude(1) circle(d=diameter, $fn=6);
+        rotate([0, 0, 30]) translate([0, 2, 0.5]) mirror([0,0,1])label();
+    }
+    #rotate([0, 0, 30]) translate([0, 2, 0.5]) rotate([0, 180, 0])mountholes();
+    
     linear_extrude(height) basehex();
     translate([0,0, height-1]) linear_extrude(1) circle(d=diameter, $fn=6);
     
@@ -42,7 +50,7 @@ if(size == 1) {
     }
 
     if(middlesep) {
-        translate([0, 0, height/2]) rotate([0,0,120]) cube([diameter-1,1,height], center=true);
+        translate([0, 0, height/2]) rotate([0,0,120]) cube([diameter-1,1,height - 2], center=true);
     }
 
     // add knob
